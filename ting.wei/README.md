@@ -2,5 +2,5 @@
 
 ## Important Links
 
-- https://tingweiii.com
-- https://tingweiii.com/aau/wnm617_01/ting.wei/index.html
+- http://tingweiii.com/aau/wnm617_01/ting.wei/
+- https://github.com/waitingwei/wnm617_202090_01
