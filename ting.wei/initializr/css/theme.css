@@ -305,3 +305,34 @@ footer-container
       padding: 1em;
     }
   }
+
+/*  footerfooter*/
+
+.footer-container footer {
+  background: #0d2c40 url(img/icon-half.svg);
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 15%;
+  position: relative;
+  color: #ffffff;
+  width: 100%;
+  margin: 0;
+  padding: 3em 8em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+  @media (max-width: 70em) {
+    .footer-container footer {
+      width: 1006%;
+      margin: 0;
+    }
+  }
+  @media (max-width: 53em) {
+    .footer-container footer {
+      background: #0d2c40;
+      width: 100%;
+      margin: 0;
+      padding: 1em;
+    }
+  }
