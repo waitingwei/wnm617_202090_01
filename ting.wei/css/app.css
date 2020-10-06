@@ -96,6 +96,11 @@ a {
 
 /* FORMS */
 
+.form-avatar {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
 .form-control {
     margin-top: 1em;
     margin-bottom: 1em;
@@ -218,6 +223,12 @@ a {
    justify-content:center;
 }
 #recent-page [data-role='main'] {
+   background-image:url('../img/map_example.jpg');
+   background-position:center;
+   background-size:cover;
+}
+
+#edit-fairyavatar-page [data-role='main'] {
    background-image:url('../img/map_example.jpg');
    background-position:center;
    background-size:cover;
@@ -347,3 +358,4 @@ a {
    border-radius:2em;
    box-shadow:2px 2px 5px rgba(0,0,0,0.15);
 }
+

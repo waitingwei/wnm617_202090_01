@@ -3,7 +3,7 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Animal Tracker</title>
+   <title>Fairy Tracker</title>
 
 
    <link rel="stylesheet" href="lib/css/jquery.mobile.structure-1.4.5.min.css">
@@ -17,8 +17,23 @@
 
 </head>
 <body>
+  <!--  onboarding -->
+   <section data-role="page" id="onboarding-page">
+      <div data-role="main">
+         <div class="flex-stretch display-flex flex-align-center flex-justify-center">
+            <img src="img/icon/onboarding01.svg" style="width:90vw;height:90vw;" class="icon" alt="">
+         </div>
+         <form id="signin-form" data-ajax="false" style="padding:1em">
+            
+            <div class="form-control">
+               <a href="#signin-page" class="form-button">Get Started</a>
+            </div>
 
+         </form>
+      </div>
+   </section>
 
+   <!-- signin -->
    <section data-role="page" id="signin-page">
       <div data-role="main">
          <div class="flex-stretch display-flex flex-align-center flex-justify-center">
@@ -67,18 +82,7 @@
    <section data-role="page" id="recent-page">
       <div data-role="main">
          <div class="floater right bottom">
-            <div class="btn-circle" data-toggle="#recent-drawer">&plus;</div>
-         </div>
-
-
-         <div class="modal" id="recent-drawer">
-            <!-- <div class="modal-back" data-deactivate="#recent-drawer"></div> -->
-            <div class="modal-drawer left">
-               <div class="modal-head">Title</div>
-               <div class="modal-body">
-                  Links and such
-               </div>
-            </div>
+            <a href="#rencet-addnew-page" class="btn-circle">+</a>
          </div>
       </div>
       <footer data-role="footer">
@@ -88,13 +92,54 @@
             <li><a href="#user-profile-page">Profile</a></li>
          </ul>
       </footer>
-
-
    </section>
-
+<!-- Add New Fairy page -->
+   <section data-role="page" id="rencet-addnew-page">
+      <header data-role="header">
+         <h1>Find Fairy</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+            <div class="modal-body">
+               <div class="form-avatar">
+                  <img src="img/avatar_expample.svg" alt="Avatar" style="width:100%">
+                  <a href="#edit-fairyavatar-page">edit</a>
+               <div class="form-control">
+                  <label for="list-add-name" class="form-label">Fairy Name</label>
+                  <input id="list-add-name" type="text" class="form-input" data-role="none">
+               </div>
+               <div class="form-control">
+                  <label for="list-add-type" class="form-label">Fairy Favorite</label>
+                  <input id="list-add-type" type="text" class="form-input" data-role="none">
+               </div>
+               <div class="form-control">
+                  <label for="list-add-breed" class="form-label">Notes</label>
+                  <input id="list-add-breed" type="text" class="form-input" data-role="none">
+               </div>
+            </div>
+            <div class="form-control">
+               <input type="submit" value="Add to List" data-role="none" class="form-button">
+            </div>  
+      </div>
+   </section>
+<!--    edit fairy avatar page -->
+   <section data-role="page" id="edit-fairyavatar-page">
+      <header data-role="header">
+         <h1>Edit Fairy</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         
+      </div>
+   </section>
+<!-- List page -->
    <section data-role="page" id="list-page">
       <header data-role="header">
-         <h1>Animals</h1>
+         <h1>Fairy List</h1>
          <ul>
             <li class="flex-stretch"></li>
             <li><a href="#" data-activate="#list-add-animal">+</a></li>
@@ -104,46 +149,16 @@
          <div class="overscroll">
             <ul>
                <!-- li*10>a[href=#animal-profile-page]>{Animal $} -->
-               <li><a href="#animal-profile-page">Animal 1</a></li>
-               <li><a href="#animal-profile-page">Animal 2</a></li>
-               <li><a href="#animal-profile-page">Animal 3</a></li>
-               <li><a href="#animal-profile-page">Animal 4</a></li>
-               <li><a href="#animal-profile-page">Animal 5</a></li>
-               <li><a href="#animal-profile-page">Animal 6</a></li>
-               <li><a href="#animal-profile-page">Animal 7</a></li>
-               <li><a href="#animal-profile-page">Animal 8</a></li>
-               <li><a href="#animal-profile-page">Animal 9</a></li>
-               <li><a href="#animal-profile-page">Animal 10</a></li>
-               <li><a href="#animal-profile-page">Animal 1</a></li>
-               <li><a href="#animal-profile-page">Animal 2</a></li>
-               <li><a href="#animal-profile-page">Animal 3</a></li>
-               <li><a href="#animal-profile-page">Animal 4</a></li>
-               <li><a href="#animal-profile-page">Animal 5</a></li>
-               <li><a href="#animal-profile-page">Animal 6</a></li>
-               <li><a href="#animal-profile-page">Animal 7</a></li>
-               <li><a href="#animal-profile-page">Animal 8</a></li>
-               <li><a href="#animal-profile-page">Animal 9</a></li>
-               <li><a href="#animal-profile-page">Animal 10</a></li>
-               <li><a href="#animal-profile-page">Animal 1</a></li>
-               <li><a href="#animal-profile-page">Animal 2</a></li>
-               <li><a href="#animal-profile-page">Animal 3</a></li>
-               <li><a href="#animal-profile-page">Animal 4</a></li>
-               <li><a href="#animal-profile-page">Animal 5</a></li>
-               <li><a href="#animal-profile-page">Animal 6</a></li>
-               <li><a href="#animal-profile-page">Animal 7</a></li>
-               <li><a href="#animal-profile-page">Animal 8</a></li>
-               <li><a href="#animal-profile-page">Animal 9</a></li>
-               <li><a href="#animal-profile-page">Animal 10</a></li>
-               <li><a href="#animal-profile-page">Animal 1</a></li>
-               <li><a href="#animal-profile-page">Animal 2</a></li>
-               <li><a href="#animal-profile-page">Animal 3</a></li>
-               <li><a href="#animal-profile-page">Animal 4</a></li>
-               <li><a href="#animal-profile-page">Animal 5</a></li>
-               <li><a href="#animal-profile-page">Animal 6</a></li>
-               <li><a href="#animal-profile-page">Animal 7</a></li>
-               <li><a href="#animal-profile-page">Animal 8</a></li>
-               <li><a href="#animal-profile-page">Animal 9</a></li>
-               <li><a href="#animal-profile-page">Animal 10</a></li>
+               <li><a href="#fairy-profile-page">Fairy 1</a></li>
+               <li><a href="#fairy-profile-page">Fairy 2</a></li>
+               <li><a href="#fairy-profile-page">Fairy 3</a></li>
+               <li><a href="#fairy-profile-page">Fairy 4</a></li>
+               <li><a href="#fairy-profile-page">Fairy 5</a></li>
+               <li><a href="#fairy-profile-page">Fairy 6</a></li>
+               <li><a href="#fairy-profile-page">Fairy 7</a></li>
+               <li><a href="#fairy-profile-page">Fairy 8</a></li>
+               <li><a href="#fairy-profile-page">Fairy 9</a></li>
+               <li><a href="#fairy-profile-page">Fairy 10</a></li>
             </ul>
          </div>
       </div>
@@ -159,18 +174,18 @@
       <div class="modal" id="list-add-animal">
          <div class="modal-back" data-deactivate="#list-add-animal"></div>
          <form class="modal-popup" id="list-add-animal-form" data-ajax="false">
-            <div class="modal-head"><h1>Add Animal</h1></div>
+            <div class="modal-head"><h1>Add Fairy</h1></div>
             <div class="modal-body">
                <div class="form-control">
-                  <label for="list-add-name" class="form-label">Animal Name</label>
+                  <label for="list-add-name" class="form-label">Fairy Name</label>
                   <input id="list-add-name" type="text" class="form-input" data-role="none">
                </div>
                <div class="form-control">
-                  <label for="list-add-type" class="form-label">Animal Type</label>
+                  <label for="list-add-type" class="form-label">Fairy Type</label>
                   <input id="list-add-type" type="text" class="form-input" data-role="none">
                </div>
                <div class="form-control">
-                  <label for="list-add-breed" class="form-label">Animal Breed</label>
+                  <label for="list-add-breed" class="form-label">Fairy Breed</label>
                   <input id="list-add-breed" type="text" class="form-input" data-role="none">
                </div>
             </div>
@@ -183,8 +198,28 @@
 
    <section data-role="page" id="user-profile-page">
       <div data-role="main">
-         User Profile<br>
+         <header data-role="header">
+            <h1>User Profile</h1>
+            </header>
+            <div class="modal-body">
+               <div class="form-avatar">
+                  <img src="img/avatar_expample.svg" alt="Avatar" style="width:100%">
+                  <a href="#user-profileedit-page">edit</a>
+               <div class="form-control">
+                  <label for="list-add-name" class="form-label">User Name</label>
+                  <input id="list-add-name" type="text" class="form-input" data-role="none">
+               </div>
+               <div class="form-control">
+                  <label for="list-add-type" class="form-label">Use age</label>
+                  <input id="list-add-type" type="text" class="form-input" data-role="none">
+               </div>
+               <div class="form-control">
+                  <label for="list-add-breed" class="form-label">Achiment</label>
+                  <input id="list-add-breed" type="text" class="form-input" data-role="none">
+               </div>
+            </div>   
          <a href="#" class="js-logout">Logout</a>
+         </div>  
       </div>
       <footer data-role="footer">
          <ul>
@@ -195,19 +230,85 @@
       </footer>
    </section>
 
-   <section data-role="page" id="animal-profile-page">
+   <section data-role="page" id="user-profileedit-page">
+      <div data-role="main">
+         <header data-role="header">
+            <h1>User Profile</h1>
+            <ul>
+               <li><a href="#" data-rel="back">Back</a></li>
+            </ul>
+            </header>
+            <div class="modal-body">
+               <div class="form-avatar">
+                  <img src="img/avatar_expample.svg" alt="Avatar" style="width:100%">
+               <div class="form-control">
+                  <label for="list-add-name" class="form-label">User Name</label>
+                  <input id="list-add-name" type="text" class="form-input" data-role="none">
+               </div>
+               <div class="form-control">
+                  <label for="list-add-type" class="form-label">Use age</label>
+                  <input id="list-add-type" type="text" class="form-input" data-role="none">
+               </div>
+               <div class="form-control">
+                  <label for="list-add-breed" class="form-label">Achiment</label>
+                  <input id="list-add-breed" type="text" class="form-input" data-role="none">
+               </div>
+               <div class="form-control">
+               <input type="submit" value="Save" data-role="none" class="form-button">
+            </div>   
+         </div>  
+      </div>
+   </section>
+
+   <section data-role="page" id="fairy-profile-page">
+      <div data-role="main">
+         <div class="overscroll">
+         <header data-role="header">
+            <h1>Name</h1>
+            <ul>
+               <li><a href="#" data-rel="back">Back</a></li>
+               <li><a href="#edit-fairyavatar-page" data-rel="Add Spot">Add spot</a></li>
+            </ul>
+            </header>
+               <div class="modal-body">
+                  <div class="form-avatar">
+                     <img src="img/avatar_expample.svg" alt="Avatar" style="width:30%">
+                  </div>
+                  <div class="form-avatar">
+                     <img src="img/map_example.jpg" alt="Avatar" style="width:100%">
+                  </div>
+                  <div class="form-control">
+                     <label for="list-add-name" class="form-label">Fairy Name</label>
+                     <input id="list-add-name" type="text" class="form-input" data-role="none">
+                  </div>
+                  <div class="form-control">
+                     <label for="list-add-type" class="form-label">Fairy Favorite</label>
+                     <input id="list-add-type" type="text" class="form-input" data-role="none">
+                  </div>
+                  <div class="form-control">
+                     <label for="list-add-breed" class="form-label">Notes</label>
+                     <input id="list-add-breed" type="text" class="form-input" data-role="none">
+                  </div>
+                  <div class="form-control">
+                  <input type="submit" value="Delete" data-role="none" class="form-button">
+                  </div>  
+            </div>  
+      </div> 
+   </section>
+
+<!--    Add fairy spot page -->
+   <section data-role="page" id="edit-fairyavatar-page">
       <header data-role="header">
-         <h1>Animal Profile</h1>
+         <h1>Add Spot</h1>
          <ul>
             <li><a href="#" data-rel="back">Back</a></li>
          </ul>
       </header>
       <div data-role="main">
-         
+         <div class="form-control">
+            <input type="submit" value="Pin Spot" data-role="none" class="form-button">
       </div>
    </section>
-
-
 
 </body>
 </html>
