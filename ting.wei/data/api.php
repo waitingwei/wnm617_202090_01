@@ -8,7 +8,7 @@ function makeConn() {
       $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
       return $conn;
    } catch (PDOException $e) {
-      die('ERROR '.$e->getMessage());
+      die('{"error":"Connection Error: '.$e->getMessage().'"}');
    }
 }
 
@@ -20,17 +20,22 @@ function fetchAll($r) {
 }
 
 // connection, prepared statement, parameters
-function makeQuery($c,$ps,$p) {
+function makeQuery($c,$ps,$p,$makeResults=true) {
    try{
-      $stmt = $c->query($ps);
+      if(count($p)) {
+         $stmt = $c->prepare($ps);
+         $stmt->execute($p);
+      } else {
+         $stmt = $c->query($ps);
+      }
 
-      $r = fetchAll($stmt);
+      $r = $makeResults ? fetchAll($stmt) : [];
 
       return [
          "result"=>$r
       ];
    } catch (PDOException $e) {
-      die('ERROR '.$e->getMessage());
+      return ['error'=>'Query Failed: '.$e->getMessage()];
    }
 }
 
