@@ -79,17 +79,18 @@
       </div>
    </section>
 
+<!-- Recent-page -->
    <section data-role="page" id="recent-page">
       <div data-role="main">
          <div class="floater right bottom">
             <a href="#rencet-addnew-page" class="btn-circle">+</a>
          </div>
       </div>
-      <footer data-role="footer">
+      <footer class="navbar" data-role="footer">
          <ul>
-            <li><a href="#recent-page">Recent</a></li>
-            <li><a href="#list-page">List</a></li>
-            <li><a href="#user-profile-page">Profile</a></li>
+             <li><a href="#recent-page"><img src="img/map-pin-hover.png" class="nav-icon"></a></li>
+            <li><a href="#list-page"><img src="img/list.png" class="nav-icon"></a></li>
+            <li><a href="#user-profile-page"><img src="img/user.png" class="nav-icon"></a></li>
          </ul>
       </footer>
    </section>
@@ -147,26 +148,82 @@
       </header>
       <div data-role="main">
          <div class="overscroll">
-            <ul>
-               <!-- li*10>a[href=#animal-profile-page]>{Animal $} -->
-               <li><a href="#fairy-profile-page">Fairy 1</a></li>
-               <li><a href="#fairy-profile-page">Fairy 2</a></li>
-               <li><a href="#fairy-profile-page">Fairy 3</a></li>
-               <li><a href="#fairy-profile-page">Fairy 4</a></li>
-               <li><a href="#fairy-profile-page">Fairy 5</a></li>
-               <li><a href="#fairy-profile-page">Fairy 6</a></li>
-               <li><a href="#fairy-profile-page">Fairy 7</a></li>
-               <li><a href="#fairy-profile-page">Fairy 8</a></li>
-               <li><a href="#fairy-profile-page">Fairy 9</a></li>
-               <li><a href="#fairy-profile-page">Fairy 10</a></li>
-            </ul>
+            <!-- animal cards -->
+            <div class="animallist">
+
+               <div class="monster-item display-flex flex-justify-center">
+                  <div class="monster-item-single" style="padding:1px 2px 8px;margin: 0.3em">
+                     <a href="#fairy-profile-page" class="ui-link" style="text-decoration:none">
+                        <div class="monster-image">
+                           <img src="img/fairy.png" alt="" style="width:162px">
+                        </div>
+                        <div class="monster-name" style="text-align:center;color:var(--color-neutral-lighter)">Jannie</div>
+                     </a>
+                  </div>
+
+                  <div class="monster-item-single" style="padding:1px 2px 8px;margin: 0.3em">
+                     <a href="#fairy-profile-page" class="ui-link" style="text-decoration:none">
+                        <div class="monster-image">
+                           <img src="img/fairy.png" alt="" style="width:162px">
+                        </div>
+                        <div class="monster-name" style="text-align:center;color:var(--color-neutral-lighter)">Jannie</div>
+                     </a>
+                  </div>
+
+               </div>
+
+
+
+
+               <div class="monster-item display-flex flex-justify-center">
+                  <div class="monster-item-single" style="padding:1px 2px 8px;margin: 0.3em">
+                     <a href="#fairy-profile-page" class="ui-link" style="text-decoration:none">
+                        <div class="monster-image">
+                           <img src="img/fairy.pngfairy.png" alt="" style="width:162px">
+                        </div>
+                        <div class="monster-name" style="text-align:center;color:var(--color-neutral-lighter)">Jannie</div>
+                     </a>
+                  </div>
+
+                  <div class="monster-item-single" style="padding:1px 2px 8px;margin: 0.3em">
+                     <a href="#fairy-profile-page" class="ui-link" style="text-decoration:none">
+                        <div class="monster-image">
+                           <img src="img/fairy.png" alt="" style="width:162px">
+                        </div>
+                        <div class="monster-name" style="text-align:center;color:var(--color-neutral-lighter)">Jannie</div>
+                     </a>
+                  </div>
+
+               </div>
+
+
+               <div class="monster-item display-flex flex-justify-center">
+                  <div class="monster-item-single" style="padding:1px 2px 8px;margin: 0.3em">
+                     <a href="#fairy-profile-page" class="ui-link" style="text-decoration:none">
+                        <div class="monster-image">
+                           <img src="img/fairy.pngfairy.png" alt="" style="width:162px">
+                        </div>
+                        <div class="monster-name" style="text-align:center;color:var(--color-neutral-lighter)">Jannie</div>
+                     </a>
+                  </div>
+
+                  <div class="monster-item-single" style="padding:1px 2px 8px;margin: 0.3em">
+                     <a href="#fairy-profile-page" class="ui-link" style="text-decoration:none">
+                        <div class="monstfairy.pnger-image">
+                           <img src="img/fairy.png" alt="" style="width:162px">
+                        </div>
+                        <div class="monster-name" style="text-align:center;color:var(--color-neutral-lighter)">Jannie</div>
+                     </a>
+                  </div>
+               </div>
+            </div>
          </div>
       </div>
-      <footer data-role="footer">
+            <footer class="navbar" data-role="footer">
          <ul>
-            <li><a href="#recent-page">Recent</a></li>
-            <li><a href="#list-page">List</a></li>
-            <li><a href="#user-profile-page">Profile</a></li>
+             <li><a href="#recent-page"><img src="img/map-pin.png" class="nav-icon"></a></li>
+            <li><a href="#list-page"><img src="img/list-hover.png" class="nav-icon"></a></li>
+            <li><a href="#user-profile-page"><img src="img/user.png" class="nav-icon"></a></li>
          </ul>
       </footer>
 
@@ -221,11 +278,11 @@
          <a href="#" class="js-logout">Logout</a>
          </div>  
       </div>
-      <footer data-role="footer">
+      <footer class="navbar" data-role="footer">
          <ul>
-            <li><a href="#recent-page">Recent</a></li>
-            <li><a href="#list-page">List</a></li>
-            <li><a href="#user-profile-page">Profile</a></li>
+             <li><a href="#recent-page"><img src="img/map-pin.png" class="nav-icon"></a></li>
+            <li><a href="#list-page"><img src="img/list.png" class="nav-icon"></a></li>
+            <li><a href="#user-profile-page"><img src="img/user-hover.png" class="nav-icon"></a></li>
          </ul>
       </footer>
    </section>
@@ -272,22 +329,22 @@
             </header>
                <div class="modal-body">
                   <div class="form-avatar">
-                     <img src="img/avatar_expample.svg" alt="Avatar" style="width:30%">
+                     <img src="img/fairy.png" alt="Avatar" style="width:30%">
                   </div>
                   <div class="form-avatar">
                      <img src="img/map_example.jpg" alt="Avatar" style="width:100%">
                   </div>
                   <div class="form-control">
-                     <label for="fairy-profile-name" class="form-label">Fairy Name</label>
-                     <input id="fairy-profile-name" type="text" class="form-input" data-role="none">
+                     <label for="fairy-profile-name" class="form-label">Jannie</label>
+                     
                   </div>
                   <div class="form-control">
-                     <label for="fairy-profile-type" class="form-label">Fairy Favorite</label>
-                     <input id="fairy-profile-type" type="text" class="form-input" data-role="none">
+                     <label for="fairy-profile-type" class="form-label">Flower</label>
+                     
                   </div>
                   <div class="form-control">
-                     <label for="fairy-profile-breed" class="form-label">Notes</label>
-                     <input id="fairy-profile-breed" type="text" class="form-input" data-role="none">
+                     <label for="fairy-profile-breed" class="form-label">Shi is cute</label>
+                     
                   </div>
                   <div class="form-control">
                   <input type="submit" value="Delete" data-role="none" class="form-button">
