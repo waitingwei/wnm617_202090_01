@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,10 +11,16 @@
    <link rel="stylesheet" href="css/app.css">
 
    <script src="lib/js/jquery-2.2.4.min.js"></script>
+   <script src="js/functions.js"></script>
    <script src="js/app.js"></script>
    <script src="js/signin.js"></script>
+   <script src="js/pages.js"></script>
+   <script src="js/maps.js"></script>
+   <script src="js/parts.js"></script>
 
    <script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
+
+   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATXd56Si6azYqyXI1YIB5TLPdl4uD3RBc" defer ></script>
 
 </head>
 <body>
@@ -23,7 +30,7 @@
          <div class="flex-stretch display-flex flex-align-center flex-justify-center">
             <img src="img/icon/onboarding01.svg" style="width:90vw;height:90vw;" class="icon" alt="">
          </div>
-         <form id="signin-form" data-ajax="false" style="padding:1em">
+         <form id="signinonboarding-form" data-ajax="false" style="padding:1em">
             
             <div class="form-control">
                <a href="#signin-page" class="form-button">Get Started</a>
@@ -82,8 +89,10 @@
 <!-- Recent-page -->
    <section data-role="page" id="recent-page">
       <div data-role="main">
+         <div class="map"></div>
+
          <div class="floater right bottom">
-            <a href="#rencet-addnew-page" class="btn-circle">+</a>
+            <div class="btn-circle" data-toggle="#recent-drawer">&plus;</div>
          </div>
       </div>
       <footer class="navbar" data-role="footer">
@@ -94,6 +103,7 @@
          </ul>
       </footer>
    </section>
+
 <!-- Add New Fairy page -->
    <section data-role="page" id="rencet-addnew-page">
       <header data-role="header">
@@ -137,10 +147,11 @@
          
       </div>
    </section>
+
 <!-- List page -->
-   <section data-role="page" id="list-page">
+  <section data-role="page" id="list-page">
       <header data-role="header">
-         <h1>Fairy List</h1>
+         <h1>Fairies</h1>
          <ul>
             <li class="flex-stretch"></li>
             <li><a href="#" data-activate="#list-add-animal">+</a></li>
@@ -148,78 +159,10 @@
       </header>
       <div data-role="main">
          <div class="overscroll">
-            <!-- animal cards -->
-            <div class="animallist">
-
-               <div class="monster-item display-flex flex-justify-center">
-                  <div class="monster-item-single" style="padding:1px 2px 8px;margin: 0.3em">
-                     <a href="#fairy-profile-page" class="ui-link" style="text-decoration:none">
-                        <div class="monster-image">
-                           <img src="img/fairy.png" alt="" style="width:162px">
-                        </div>
-                        <div class="monster-name" style="text-align:center;color:var(--color-neutral-lighter)">Jannie</div>
-                     </a>
-                  </div>
-
-                  <div class="monster-item-single" style="padding:1px 2px 8px;margin: 0.3em">
-                     <a href="#fairy-profile-page" class="ui-link" style="text-decoration:none">
-                        <div class="monster-image">
-                           <img src="img/fairy.png" alt="" style="width:162px">
-                        </div>
-                        <div class="monster-name" style="text-align:center;color:var(--color-neutral-lighter)">Jannie</div>
-                     </a>
-                  </div>
-
-               </div>
-
-
-
-
-               <div class="monster-item display-flex flex-justify-center">
-                  <div class="monster-item-single" style="padding:1px 2px 8px;margin: 0.3em">
-                     <a href="#fairy-profile-page" class="ui-link" style="text-decoration:none">
-                        <div class="monster-image">
-                           <img src="img/fairy.pngfairy.png" alt="" style="width:162px">
-                        </div>
-                        <div class="monster-name" style="text-align:center;color:var(--color-neutral-lighter)">Jannie</div>
-                     </a>
-                  </div>
-
-                  <div class="monster-item-single" style="padding:1px 2px 8px;margin: 0.3em">
-                     <a href="#fairy-profile-page" class="ui-link" style="text-decoration:none">
-                        <div class="monster-image">
-                           <img src="img/fairy.png" alt="" style="width:162px">
-                        </div>
-                        <div class="monster-name" style="text-align:center;color:var(--color-neutral-lighter)">Jannie</div>
-                     </a>
-                  </div>
-
-               </div>
-
-
-               <div class="monster-item display-flex flex-justify-center">
-                  <div class="monster-item-single" style="padding:1px 2px 8px;margin: 0.3em">
-                     <a href="#fairy-profile-page" class="ui-link" style="text-decoration:none">
-                        <div class="monster-image">
-                           <img src="img/fairy.pngfairy.png" alt="" style="width:162px">
-                        </div>
-                        <div class="monster-name" style="text-align:center;color:var(--color-neutral-lighter)">Jannie</div>
-                     </a>
-                  </div>
-
-                  <div class="monster-item-single" style="padding:1px 2px 8px;margin: 0.3em">
-                     <a href="#fairy-profile-page" class="ui-link" style="text-decoration:none">
-                        <div class="monstfairy.pnger-image">
-                           <img src="img/fairy.png" alt="" style="width:162px">
-                        </div>
-                        <div class="monster-name" style="text-align:center;color:var(--color-neutral-lighter)">Jannie</div>
-                     </a>
-                  </div>
-               </div>
-            </div>
+            <div class="animallist"></div>
          </div>
       </div>
-            <footer class="navbar" data-role="footer">
+      <footer class="navbar" data-role="footer">
          <ul>
              <li><a href="#recent-page"><img src="img/map-pin.png" class="nav-icon"></a></li>
             <li><a href="#list-page"><img src="img/list-hover.png" class="nav-icon"></a></li>
@@ -227,22 +170,22 @@
          </ul>
       </footer>
 
-
+<!-- List add animal -->
       <div class="modal" id="list-add-animal">
          <div class="modal-back" data-deactivate="#list-add-animal"></div>
          <form class="modal-popup" id="list-add-animal-form" data-ajax="false">
-            <div class="modal-head"><h1>Add Fairy</h1></div>
+            <div class="modal-head"><h1>Add Animal</h1></div>
             <div class="modal-body">
                <div class="form-control">
-                  <label for="list-add-name" class="form-label">Fairy Name</label>
+                  <label for="list-add-name" class="form-label">Animal Name</label>
                   <input id="list-add-name" type="text" class="form-input" data-role="none">
                </div>
                <div class="form-control">
-                  <label for="list-add-type" class="form-label">Fairy Type</label>
+                  <label for="list-add-type" class="form-label">Animal Type</label>
                   <input id="list-add-type" type="text" class="form-input" data-role="none">
                </div>
                <div class="form-control">
-                  <label for="list-add-breed" class="form-label">Fairy Breed</label>
+                  <label for="list-add-breed" class="form-label">Animal Breed</label>
                   <input id="list-add-breed" type="text" class="form-input" data-role="none">
                </div>
             </div>
@@ -253,119 +196,115 @@
       </div>
    </section>
 
+<!--    </section>
+user profile -->
    <section data-role="page" id="user-profile-page">
       <div data-role="main">
-         <header data-role="header">
-            <h1>User Profile</h1>
-            </header>
-            <div class="modal-body">
-               <div class="form-avatar">
-                  <img src="img/avatar_expample.svg" alt="Avatar" style="width:100%">
-                  <a href="#user-profileedit-page">edit</a>
-               <div class="form-control">
-                  <label for="user-profile-name" class="form-label">User Name</label>
-                  <input id="user-profile-name" type="text" class="form-input" data-role="none">
-               </div>
-               <div class="form-control">
-                  <label for="user-profile-type" class="form-label">Use age</label>
-                  <input id="user-profile-type" type="text" class="form-input" data-role="none">
-               </div>
-               <div class="form-control">
-                  <label for="user-profile-breed" class="form-label">Achiment</label>
-                  <input id="user-profile-breed" type="text" class="form-input" data-role="none">
-               </div>
-            </div>   
-         <a href="#" class="js-logout">Logout</a>
-         </div>  
+         <div class="profile"></div>
       </div>
-      <footer class="navbar" data-role="footer">
+
+      <footer data-role="footer">
          <ul>
-             <li><a href="#recent-page"><img src="img/map-pin.png" class="nav-icon"></a></li>
-            <li><a href="#list-page"><img src="img/list.png" class="nav-icon"></a></li>
-            <li><a href="#user-profile-page"><img src="img/user-hover.png" class="nav-icon"></a></li>
+            <li><a href="#recent-page">Recent</a></li>
+            <li><a href="#list-page">List</a></li>
+            <li><a href="#user-profile-page">Profile</a></li>
          </ul>
       </footer>
    </section>
 
-   <section data-role="page" id="user-profileedit-page">
-      <div data-role="main">
-         <header data-role="header">
-            <h1>User Profile</h1>
-            <ul>
-               <li><a href="#" data-rel="back">Back</a></li>
-            </ul>
-            </header>
-            <div class="modal-body">
-               <div class="form-avatar">
-                  <img src="img/avatar_expample.svg" alt="Avatar" style="width:100%">
-               <div class="form-control">
-                  <label for="user-profileedit-name" class="form-label">User Name</label>
-                  <input id="user-profileedit-name" type="text" class="form-input" data-role="none">
-               </div>
-               <div class="form-control">
-                  <label for="user-profileedit-type" class="form-label">Use age</label>
-                  <input id="user-profileedit-type" type="text" class="form-input" data-role="none">
-               </div>
-               <div class="form-control">
-                  <label for="user-profileedit-breed" class="form-label">Achiment</label>
-                  <input id="user-profileedit-breed" type="text" class="form-input" data-role="none">
-               </div>
-               <div class="form-control">
-               <input type="submit" value="Save" data-role="none" class="form-button">
-            </div>   
-         </div>  
-      </div>
-   </section>
-
-   <section data-role="page" id="fairy-profile-page">
-      <div data-role="main">
-         <div class="overscroll">
-         <header data-role="header">
-            <h1>Name</h1>
-            <ul>
-               <li><a href="#" data-rel="back">Back</a></li>
-               <li><a href="#edit-fairyavatar-page" data-rel="Add Spot">Add spot</a></li>
-            </ul>
-            </header>
-               <div class="modal-body">
-                  <div class="form-avatar">
-                     <img src="img/fairy.png" alt="Avatar" style="width:30%">
-                  </div>
-                  <div class="form-avatar">
-                     <img src="img/map_example.jpg" alt="Avatar" style="width:100%">
-                  </div>
-                  <div class="form-control">
-                     <label for="fairy-profile-name" class="form-label">Jannie</label>
-                     
-                  </div>
-                  <div class="form-control">
-                     <label for="fairy-profile-type" class="form-label">Flower</label>
-                     
-                  </div>
-                  <div class="form-control">
-                     <label for="fairy-profile-breed" class="form-label">Shi is cute</label>
-                     
-                  </div>
-                  <div class="form-control">
-                  <input type="submit" value="Delete" data-role="none" class="form-button">
-                  </div>  
-            </div>  
-      </div> 
-   </section>
-
-<!--    Add fairy spot page -->
-   <section data-role="page" id="edit-fairyavatar-page">
+   <section data-role="page" id="user-settings-page">
       <header data-role="header">
-         <h1>Add Spot</h1>
+         <h1>User Settings</h1>
          <ul>
             <li><a href="#" data-rel="back">Back</a></li>
          </ul>
       </header>
       <div data-role="main">
-         <div class="form-control">
-            <input type="submit" value="Pin Spot" data-role="none" class="form-button">
+         <ul class="settings-list">
+            <li><a href="#user-profile-edit-page">Update Profile</a></li>
+            <li><a href="#user-password-edit-page">Change Password</a></li>
+            <li><a href="#" class="js-logout">Logout</a></li>
+         </ul>
       </div>
    </section>
 
+<!--    user profile edit -->
+
+  <section data-role="page" id="user-profile-edit-page">
+      <header data-role="header">
+         <h1>User Info</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" data-rel="back">Save</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         <form id="user-edit-form" data-ajax="false" style="padding:1em">
+            <div class="form-control">
+               <label for="user-edit-username" class="form-label">Username</label>
+               <input id="user-edit-username" type="text" class="form-input" data-role="none" placeholder="Type your user name" value="bronkula">
+            </div>
+            <div class="form-control">
+               <label for="user-edit-name" class="form-label">Full Name</label>
+               <input id="user-edit-name" type="text" class="form-input" data-role="none" placeholder="Type your full name" value="Hamilton Cline">
+            </div>
+            <div class="form-control">
+               <label for="user-edit-email" class="form-label">Email</label>
+               <input id="user-edit-email" type="text" class="form-input" data-role="none" placeholder="Type your user email" value="hcline@academyart.edu">
+            </div>
+         </form>
+      </div>
+   </section>
+<!-- 
+user password edit -->
+<section data-role="page" id="user-password-edit-page">
+      <header data-role="header">
+         <h1>Change Password</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" data-rel="back">Save</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         <form id="user-password-form" data-ajax="false" style="padding:1em">
+            <div class="form-control">
+               <label for="user-password-oldpassword" class="form-label">Old Password</label>
+               <input id="user-password-oldpassword" type="password" class="form-input" data-role="none" placeholder="Type your old password">
+            </div>
+            <div class="form-control">
+               <label for="user-password-password" class="form-label">New Password</label>
+               <input id="user-password-password" type="password" class="form-input" data-role="none" placeholder="Type your new password">
+            </div>
+            <div class="form-control">
+               <label for="user-password-confirm" class="form-label">Confirm Password</label>
+               <input id="user-password-confirm" type="password" class="form-input" data-role="none" placeholder="Type your new password">
+            </div>
+         </form>
+      </div>
+   </section>
+
+<!-- animal profile page -->
+   <section data-role="page" id="animal-profile-page">
+      <header data-role="header">
+         <h1>Animal Profile</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         <div class="profile-top">
+            <div class="map"></div>
+         </div>
+         <div class="profile-bottom">
+            <div class="profile"></div>
+         </div>
+      </div>
+   </section>
+
+
 </body>
 </html>
+
+<
