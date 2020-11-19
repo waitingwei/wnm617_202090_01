@@ -28,3 +28,19 @@ const makeAnimalProfile = templater(o=>`
    </div>
    <h2>${o.name}</h2>
    `);
+
+const makeAnimalPopup = o => `
+<div class="display-flex animal-popup">
+   <div class="flex-none">
+      <div class="animal-image">
+         <img src="${o.img}" alt="">
+      </div>
+   </div>
+   <div class="flex-none animal-popup-description">
+      <h2>${o.name}</h2>
+      <div>${o.type}</div>
+      <div>${o.breed}</div>
+   </div>
+</div>
+`;
+

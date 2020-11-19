@@ -25,7 +25,17 @@ const RecentPage = async() => {
 
    let map_el = await makeMap("#recent-page .map");
 
-   makeMarkers(map_el,valid_animals)
+   makeMarkers(map_el,valid_animals);
+
+   map_el.data("markers").forEach(o=>{
+   	o.addListener("click",function(){
+
+   		map_el.data("infoWindow")
+   			.open(map_el.data("map"),o);
+   		map_el.data("infoWindow")
+   			.setContent("hello");
+   		})
+   });
 }
 
 const UserProfilePage = async() => {

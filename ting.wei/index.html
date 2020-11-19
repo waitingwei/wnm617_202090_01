@@ -91,8 +91,18 @@
       <div data-role="main">
          <div class="map"></div>
 
-         <div class="floater right bottom">
-            <div class="btn-circle" data-toggle="#recent-drawer">&plus;</div>
+
+         <div class="modal active" id="recent-drawer">
+            <!-- <div class="modal-back" data-deactivate="#recent-drawer"></div> -->
+            <div class="modal-drawer bottom">
+               <div class="modal-close-floater top right" data-deactivate="#recent-drawer">
+                  <div class="btn-circle">&times;</div>
+               </div>
+               <div class="modal-head">Title</div>
+               <div class="modal-body">
+                  Links and such
+               </div>
+            </div>
          </div>
       </div>
       <footer class="navbar" data-role="footer">
