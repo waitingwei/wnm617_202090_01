@@ -28,14 +28,55 @@ $(()=>{
 
    // FORM SUBMITS
 
-   .on("submit","#signin-form",function(e){
+  .on("submit","#signin-form",function(e){
       e.preventDefault();
       checkSigninForm();
+   })
+   .on("submit","#signup-form",function(e){
+      e.preventDefault();
+      checkSignupForm();
+   })
+   .on("submit","#list-search-form",function(e){
+      e.preventDefault();
+      checkSearchForm();
+   })
+
+
+//FORM SUBMIT CLICKS
+
+  .on("click",'.js-user-edit',function(e){
+      checkUserEditForm();
+   })
+   .on("click",'.js-animal-add',function(e){
+      checkAnimalAddForm();
+   })
+   .on("click",'.js-animal-edit',function(e){
+      checkAnimalEditForm();
+   })
+   .on("click",'.js-location-add',function(e){
+      checkLocationAddForm();
+   })
+   .on("click",'.js-user-upload',function(e){
+      checkUserUploadForm();
    })
 
 
 
 
+   .on("click",".filter",function(){
+      checkListFilter($(this).data());
+   })
+   .on("change",".image-uploader input",function(){
+      checkUpload(this.files[0])
+      .then(d=>{
+         console.log(d)
+         makeUploaderImage({
+            namespace:'user-upload',
+            folder:'uploads/',
+            name:d.result
+         })
+      })
+   })
 
    // ANCHOR CLICKS
 

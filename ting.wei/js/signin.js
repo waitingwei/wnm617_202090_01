@@ -54,3 +54,26 @@ const checkUserId = () => {
          $.mobile.navigate("#recent-page");
    }
 }
+
+
+
+const checkSignupForm = () => {
+   let username = $("#signup-username").val();
+   let email = $("#signup-email").val();
+   let password = $("#signup-password").val();
+   let passwordconfirm = $("#signup-password-confirm").val();
+
+   if(password!=passwordconfirm) {
+      throw "password don't match";
+      return;  
+   } else {
+      query({type:'insert_user',params:[username,email,password]})
+      .then(d=>{
+         if(d.error){
+            thorw d.error;
+         }
+         console.log(d);
+         $mobile.navigate("#signin-page");
+      })
+   }
+}

@@ -3,6 +3,15 @@
 <html lang="en">
 <head>
    <meta charset="UTF-8">
+
+
+
+   <meta name="apple-mobile-web-app-capable" content="yes">
+   <meta name="mobile-web-app-capable" content="yes">
+
+   <link rel="apple-touch-icon" href="./site_logo.png">
+   <link rel="icon" href="./site_logo.png">
+
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Fairy Tracker</title>
 
@@ -13,6 +22,7 @@
    <script src="lib/js/jquery-2.2.4.min.js"></script>
    <script src="js/functions.js"></script>
    <script src="js/app.js"></script>
+   <script src="js/form.js"></script>
    <script src="js/signin.js"></script>
    <script src="js/pages.js"></script>
    <script src="js/maps.js"></script>
@@ -44,7 +54,7 @@
    <section data-role="page" id="signin-page">
       <div data-role="main">
          <div class="flex-stretch display-flex flex-align-center flex-justify-center">
-            <img src="img/logo.png" class="icon" alt="">
+            <img src="./site_logo.png" class="icon" alt="">
          </div>
          <form id="signin-form" data-ajax="false" style="padding:1em">
             <div class="form-control">
@@ -115,34 +125,34 @@
    </section>
 
 <!-- Add New Fairy page -->
-   <section data-role="page" id="rencet-addnew-page">
+   <section data-role="page" id="fairy-add-page">
       <header data-role="header">
-         <h1>Find Fairy</h1>
+         <h1>Animal Info</h1>
          <ul>
             <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" class="js-animal-add">Save</a></li>
          </ul>
       </header>
       <div data-role="main">
-            <div class="modal-body">
-               <div class="form-avatar">
-                  <img src="img/avatar_expample.svg" alt="Avatar" style="width:100%">
-                  <a href="#edit-fairyavatar-page">edit</a>
-               <div class="form-control">
-                  <label for="recent-add-name" class="form-label">Fairy Name</label>
-                  <input id="recent-add-name" type="text" class="form-input" data-role="none">
-               </div>
-               <div class="form-control">
-                  <label for="recent-add-type" class="form-label">Fairy Favorite</label>
-                  <input id="recent-add-type" type="text" class="form-input" data-role="none">
-               </div>
-               <div class="form-control">
-                  <label for="recent-add-breed" class="form-label">Notes</label>
-                  <input id="recent-add-breed" type="text" class="form-input" data-role="none">
-               </div>
+         <form id="animal-add-form" data-ajax="false" style="padding:1em">
+            <div class="form-control">
+               <label for="animal-add-name" class="form-label">Name</label>
+               <input id="animal-add-name" type="text" class="form-input" data-role="none">
             </div>
             <div class="form-control">
-               <input type="submit" value="Add to List" data-role="none" class="form-button">
-            </div>  
+               <label for="animal-add-type" class="form-label">Type</label>
+               <input id="animal-add-type" type="text" class="form-input" data-role="none">
+            </div>
+            <div class="form-control">
+               <label for="animal-add-breed" class="form-label">Breed</label>
+               <input id="animal-add-breed" type="text" class="form-input" data-role="none">
+            </div>
+            <div class="form-control">
+               <label for="animal-add-description" class="form-label">Description</label>
+               <textarea id="animal-add-description" class="form-input" data-role="none"></textarea>
+            </div>
+         </form>
       </div>
    </section>
 <!--    edit fairy avatar page -->
@@ -160,12 +170,19 @@
 
 <!-- List page -->
   <section data-role="page" id="list-page">
+      <header data-role="header" style="padding: 0.1em">
+         <form class="hotdog" id="list-search-form" data-ajax="false">
+            <input type="search" id="list-search-input" data-role="none">
+         </form>
+      </header>
       <header data-role="header">
-         <h1>Fairies</h1>
-         <ul>
-            <li class="flex-stretch"></li>
-            <li><a href="#" data-activate="#list-add-animal">+</a></li>
-         </ul>
+         <div class="filter-list">
+            <div class="filter" data-field="type" data-value="">All</div>
+            <div class="filter" data-field="type" data-value="normal">Normal</div>
+            <div class="filter" data-field="type" data-value="dark">Dark</div>
+            <div class="filter" data-field="type" data-value="water">Water</div>
+            <div class="filter" data-field="type" data-value="grass">Grass</div>
+         </div>
       </header>
       <div data-role="main">
          <div class="overscroll">
@@ -240,35 +257,53 @@ user profile -->
 
 <!--    user profile edit -->
 
-  <section data-role="page" id="user-profile-edit-page">
+   <section data-role="page" id="user-profile-page">
+      <div data-role="main">
+         <div class="profile"></div>
+      </div>
+      <footer data-role="footer">
+         <ul>
+            <li><a href="#recent-page">Recent</a></li>
+            <li><a href="#list-page">List</a></li>
+            <li><a href="#user-profile-page">Profile</a></li>
+         </ul>
+      </footer>
+   </section>
+
+   <section data-role="page" id="user-settings-page">
+      <header data-role="header">
+         <h1>User Settings</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         <ul class="settings-list">
+            <li><a href="#user-edit-page">Update Profile</a></li>
+            <li><a href="#user-password-page">Change Password</a></li>
+            <li><a href="#" class="js-logout">Logout</a></li>
+         </ul>
+      </div>
+   </section>
+
+   <section data-role="page" id="user-edit-page">
       <header data-role="header">
          <h1>User Info</h1>
          <ul>
             <li><a href="#" data-rel="back">Back</a></li>
             <li class="flex-stretch"></li>
-            <li><a href="#" data-rel="back">Save</a></li>
+            <li><a href="#" class="js-user-edit">Save</a></li>
          </ul>
       </header>
       <div data-role="main">
-         <form id="user-edit-form" data-ajax="false" style="padding:1em">
-            <div class="form-control">
-               <label for="user-edit-username" class="form-label">Username</label>
-               <input id="user-edit-username" type="text" class="form-input" data-role="none" placeholder="Type your user name" value="bronkula">
-            </div>
-            <div class="form-control">
-               <label for="user-edit-name" class="form-label">Full Name</label>
-               <input id="user-edit-name" type="text" class="form-input" data-role="none" placeholder="Type your full name" value="Hamilton Cline">
-            </div>
-            <div class="form-control">
-               <label for="user-edit-email" class="form-label">Email</label>
-               <input id="user-edit-email" type="text" class="form-input" data-role="none" placeholder="Type your user email" value="hcline@academyart.edu">
-            </div>
-         </form>
+         <div class="overscroll">
+            <form id="user-edit-form" data-ajax="false" style="padding:1em">
+            </form>
+         </div>
       </div>
    </section>
-<!-- 
-user password edit -->
-<section data-role="page" id="user-password-edit-page">
+
+   <section data-role="page" id="user-password-page">
       <header data-role="header">
          <h1>Change Password</h1>
          <ul>
@@ -278,19 +313,40 @@ user password edit -->
          </ul>
       </header>
       <div data-role="main">
-         <form id="user-password-form" data-ajax="false" style="padding:1em">
-            <div class="form-control">
-               <label for="user-password-oldpassword" class="form-label">Old Password</label>
-               <input id="user-password-oldpassword" type="password" class="form-input" data-role="none" placeholder="Type your old password">
-            </div>
-            <div class="form-control">
-               <label for="user-password-password" class="form-label">New Password</label>
-               <input id="user-password-password" type="password" class="form-input" data-role="none" placeholder="Type your new password">
-            </div>
-            <div class="form-control">
-               <label for="user-password-confirm" class="form-label">Confirm Password</label>
-               <input id="user-password-confirm" type="password" class="form-input" data-role="none" placeholder="Type your new password">
-            </div>
+         <div class="overscroll">
+            <form id="user-password-form" data-ajax="false" style="padding:1em">
+               <div class="form-control">
+                  <label for="user-password-oldpassword" class="form-label">Old Password</label>
+                  <input id="user-password-oldpassword" type="password" class="form-input" data-role="none" placeholder="Type your old password">
+               </div>
+               <div class="form-control">
+                  <label for="user-password-password" class="form-label">New Password</label>
+                  <input id="user-password-password" type="password" class="form-input" data-role="none" placeholder="Type your new password">
+               </div>
+               <div class="form-control">
+                  <label for="user-password-confirm" class="form-label">Confirm Password</label>
+                  <input id="user-password-confirm" type="password" class="form-input" data-role="none" placeholder="Type your new password">
+               </div>
+            </form>
+         </div>
+      </div>
+   </section>
+
+   <section data-role="page" id="user-upload-page">
+      <header data-role="header">
+         <h1>Upload Photo</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" class="js-user-upload">Save</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         <form id="user-upload-form" data-ajax="false">
+            <input type="hidden" id="user-upload-image">
+            <label class="image-uploader full">
+               <input type="file" data-role="none" id="user-upload-input">
+            </label>
          </form>
       </div>
    </section>

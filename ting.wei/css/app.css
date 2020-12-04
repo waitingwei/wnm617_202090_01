@@ -157,11 +157,45 @@ a {
   border-radius: 30px;
 }
 
-.icon {
-  width: 100%;
-  left: 140px;
-  top: 159px;
+.hotdog {
+   width: 100%;
+   display: inline-flex;
+   background-color: var(--color-neutral-light);
+   padding: 0.5em 1em;
+   border-radius: 2em;
+   line-height:1;
 }
+[data-role="header"]>.hotdog {
+   padding:0.7em 1em;
+}
+.hotdog>input {
+   flex:1;
+   border-width:0;
+   border-radius:0;
+   background-color:transparent;
+   font:inherit;
+   color:inherit;
+   outline:0;
+   padding:0;
+}
+
+
+.map {
+   position:absolute;
+   top:0;
+   left:0;
+   width:100%;
+   height:100%;
+}
+.icon {
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: text-bottom;
+}
+.ui-header .icon {
+  vertical-align:middle;
+}
+
 
 
 
@@ -410,7 +444,46 @@ a {
   transform: translateY(-100%);
 }
 
+/* Profile */
+.user-profile-image {
+   position:relative;
+}
+.user-profile-image>img {
+   width:calc(100vmin - 4em);
+   height:calc(100vmin - 4em);
+   margin:2em;
+   border-radius:50%;
 
+   object-fit:cover;
+}
+
+
+
+
+/* SETTINGS */
+.settings-list {
+   list-style-type:none;
+   padding:0;
+   margin:0;
+}
+.settings-list a {
+   padding: 0.5em 1em;
+}
+.settings-list li:not(:first-child) {
+   border-top: 1px solid var(--color-neutral-medium);
+}
+
+.settings-list a {
+   display:block;
+   position: relative;
+}
+.settings-list a:not([href='#'])::after {
+   position:absolute;
+   content:'>';
+   top:50%;
+   right:1em;
+   transform:translateY(-50%);
+}
 
 /* ANIMAL LIST */
 .animallist-icon img {
