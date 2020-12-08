@@ -18,7 +18,7 @@ const RecentPage = async() => {
    console.log(d)
 
    let valid_animals = d.result.reduce((r,o)=>{
-      o.icon;
+      o.icon = o.img;
       if(o.lat && o.lng) r.push(o);
       return r;
    },[]);
@@ -27,16 +27,19 @@ const RecentPage = async() => {
 
    makeMarkers(map_el,valid_animals);
 
-   map_el.data("markers").forEach(o=>{
-   	o.addListener("click",function(){
+   map_el.data("markers").forEach((o,i)=>{
+      o.addListener("click",function(){
 
-   		map_el.data("infoWindow")
-   			.open(map_el.data("map"),o);
-   		map_el.data("infoWindow")
-   			.setContent("hello");
-   		})
+         map_el.data("infoWindow")
+            .open(map_el.data("map"),o);
+         map_el.data("infoWindow")
+            .setContent(makeAnimalPopup(valid_animals[i]));
+      })
    });
 }
+
+
+
 
 const UserProfilePage = async() => {
    let d = await query({type:'user_by_id',params:[sessionStorage.userId]});
@@ -45,6 +48,10 @@ const UserProfilePage = async() => {
 
    $("#user-profile-page .profile").html(makeUserProfile(d.result))
 }
+
+
+
+
 
 
 const AnimalProfilePage = async() => {

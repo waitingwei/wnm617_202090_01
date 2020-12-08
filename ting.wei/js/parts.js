@@ -6,47 +6,58 @@ const makeAnimalList = templater(o=>`
          <img src="${o.img}" alt="">
       </div>
       <div class="animallist-description">
+         <div class="animallist-time">${o.date_create}</div>
          <div class="animallist-name">${o.name}</div>
-         <div class="animallist-type"><strong>Type</strong> ${o.type}</div>
-         <div class="animallist-breed"><strong>Contest</strong> ${o.contest}</div>
+         <div class="animallist-contest">${o.contest}</div>
       </div>
+      <div class="animallist-type">${o.type}</div>
    </div>
    `);
 
 const makeUserProfile = templater(o=>`
    <div class="user-profile-image">
       <img src="${o.img}" alt="">
-      <a href="#user-upload-page" class="floater bottom right"><img class="icon" src="img/icon/edit.svg" alt=""></a></a>
    </div>
    <div style="padding:1em">
-      <h2>${o.name}</h2>
-      <h3>@${o.username}</h3>
-      <h3>${o.email}</h3>
-      <div class="floater top right" style="font-size:1.25em"><a href="#user-settings-page">&equiv;</a></div>
+      <div class="user-profile-name">${o.name}</div>
    </div>
    `);
 
 const makeAnimalProfile = templater(o=>`
-   <div class="animal-profile-image">
-      <img src="${o.img}" alt="">
+   <div class="fairy-profile-info">
+      <div class="center-image">
+         <img src="${o.img}" alt=""></div>
    </div>
-   <h2>${o.name}</h2>
+   <div class="animalprofile-description">
+
+      <div class="fairy-profile-name">${o.name}</div>
+      <div class="animallist-type">${o.type}</div>
+      <div class="fairy-profile-stats">Contest</div>
+      <div class="fairy-profile-value">${o.contest}</div>
+      <div class="fairy-profile-stats">Create Time</div>
+      <div class="fairy-profile-value">${o.date_create}</div>
+       <div class="fairy-profile-stats">Description</div>
+      <div class="fairy-profile-value">${o.description}</div>
+      
+   </div>
    `);
 
 const makeAnimalPopup = o => `
-<div class="display-flex animal-popup">
-   <div class="flex-none">
-      <div class="animal-image">
-         <img src="${o.img}" alt="">
+
+   <div class="animallist-popup js-animal-jump" data-id="${o.animal_id}">
+      <div class="animallist-icon">
+         <img src="${o.img}" alt=""></div>
+      <div class="animallist-popup-description">
+         <div class="animallist-time">${o.date_create}</div>
+         <div class="animallist-name">${o.name}</div>
+          <div class="animallist-contest">${o.contest}</div>
+
       </div>
+
    </div>
-   <div class="flex-none animal-popup-description">
-      <h2>${o.name}</h2>
-      <div>${o.type}</div>
-      <div>${o.breed}</div>
-   </div>
-</div>
-`;
+   `;
+
+
 
 
 const drawAnimalList = (a,empty_phrase="No animals yet, you should add some.") => {
