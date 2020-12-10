@@ -2,10 +2,65 @@
 
 
 const checkAnimalAddForm = () => {
-	$.mobile.navigate($("#animal-add-destination").val());
+   let name = $("#fairy-add-name").val();
+   let type = $("#fairy-add-type").val();
+   // let type = $("#fairy-add-type").val(`$_POST['fairy-add-type']`);
+   let contest = $("#fairy-add-contest").val();
+   let description = $("#fairy-add-description").val();
+
+   query({
+      type:'insert_fairy',
+      params:[sessionStorage.userId,name,type,contest,description]
+   }).then(d=>{
+      if(d.error) {
+         throw d.error;
+      }
+      $("#fairy-add-form")[0].reset();
+
+      console.log(d);
+      sessionStorage.animalId = d.id;
+      $.mobile.navigate($("#fairy-add-destination").val());
+   })
+}
+
+const checkLocationAddForm = () => {
+   let lat = $("#location-add-lat").val();
+   let lng = $("#location-add-lng").val();
+   let description = $("#location-add-description").val();
+   // let type = $("#fairy-add-type").val(`$_POST['fairy-add-type']`);
+
+   query({
+      type:'insert_location',
+      params:[sessionStorage.animalId,+lat,+lng,description]
+   }).then(d=>{
+      if(d.error) {
+         throw d.error;
+      }
+
+      $("#location-add-form")[0].reset();
+
+      console.log(d);
+
+      window.history.go(-2);
+   })
 }
 
 
+const checkAnimalProfileUpdateForm = () => {
+   let name = $("#animal-edit-name").val();
+   let contest = $("#animal-edit-contest").val();
+   let description = $("#animal-edit-description").val();
+
+   query({
+      type:'update_fairy',
+      params:[name,contest,description,sessionStorage.animalId]
+   }).then(d=>{
+      if(d.error) {
+         throw d.error;
+      }
+      window.history.back();
+   })
+}
 
 
 const checkSearchForm = async() => {
@@ -66,6 +121,18 @@ const checkUserUploadForm = () => {
 }
 
 
+const checkAnimalDelete = id => {
+   query({
+      type: 'delete_animal',
+      params:[id]
+   }).then(d=>{
+      if(d.error) {
+         throw d.error;
+      }
+      window.history.go(-2);
+   })
+
+}
 
 
 

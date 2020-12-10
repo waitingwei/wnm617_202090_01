@@ -18,9 +18,13 @@ $(()=>{
       // Page Routing
       switch(ui.toPage[0].id) {
          case "recent-page": RecentPage(); break;
+         case "fairy-add-page": FariyAddPage(); break;
          case "list-page": ListPage(); break;
          case "user-profile-page": UserProfilePage(); break;
+         case "user-profile-edit-page": UserProfileEditPage(); break;
          case "animal-profile-page": AnimalProfilePage(); break;
+         case "animal-profile-edit-page": AnimalProfileEditPage(); break;
+         case "location-add-page": LocationAddPage(); break;
       }
    })
 
@@ -42,17 +46,22 @@ $(()=>{
    })
 
 
+   // .on("submit","#lanimal-profile-edit-form",function(e){
+   //    checkAnimalProfileUpdateForm();
+   
 //FORM SUBMIT CLICKS
 
-  .on("click",'.js-user-edit',function(e){
-      checkUserEditForm();
-   })
+  // .on("click",'.js-user-edit',function(e){
+  //     checkUserEditForm();
+  //  })
    .on("click",'.js-animal-add',function(e){
       checkAnimalAddForm();
    })
    .on("click",'.js-animal-edit',function(e){
-      checkAnimalEditForm();
+      checkAnimalProfileUpdateForm();
    })
+
+
    .on("click",'.js-location-add',function(e){
       checkLocationAddForm();
    })
@@ -90,6 +99,9 @@ $(()=>{
       $.mobile.navigate('#animal-profile-page');
    })
 
+   .on("click",'.js-animal-delete',function(e){
+      checkAnimalDelete($(this).data("id"));
+   })
 
    .on('click','[data-activate]',function(e){
       let target = $(this).data('activate');

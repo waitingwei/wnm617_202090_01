@@ -22,12 +22,12 @@
 
    <script src="lib/js/jquery-2.2.4.min.js"></script>
    <script src="js/functions.js"></script>
-   <script src="js/app.js"></script>
-   <script src="js/form.js"></script>
-   <script src="js/signin.js"></script>
-   <script src="js/pages.js"></script>
    <script src="js/maps.js"></script>
+   <script src="js/form.js"></script>
+   <script src="js/pages.js"></script>
    <script src="js/parts.js"></script>
+   <script src="js/signin.js"></script>
+   <script src="js/app.js"></script>
 
    <script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
 
@@ -127,7 +127,7 @@
    <section data-role="page" id="recent-page">
       <div data-role="main">
          <div class="map"></div>
-            <div class="modal" id="recent-drawer">
+<!--             <div class="modal" id="recent-drawer">
             <div class="modal-drawer bottom">
                <div class="modal-close-floater top right" data-deactivate="#recent-drawer">
                   <div class="btn-circle">&times;</div>
@@ -136,8 +136,10 @@
                <div class="modal-body">
                   Links and such
                </div>
-            </div>
-         </div>
+            </div> -->
+      </div>
+      <div class="floater center bottom">
+            <a href="#fairy-add-page"><img src="img/icon_plus.svg" class="round-button"></a>
       </div>
       <footer class="navbar" data-role="footer">
          <ul>
@@ -148,8 +150,51 @@
       </footer>
    </section>
 
+
+<!-- ADD Fairy location page reference from http://sonjajons.com/aau/wnm617/jonsdottir.sonja/#location-add-page -->
+    <section data-role="page" id="fairy-add-page">
+      <header data-role="header">
+         <h1>Find Fairy</h1>
+         <ul>
+            <li><a href="#" data-rel="back">
+               <img src="img/icon/icon_back.svg" alt="" class="icon"></a></li>
+
+         </ul>
+      </header>
+         <div class="fairy-add-top">
+            <div class="map"></div>
+         </div>
+         <div class="overscroll">
+            <form id="fairy-add-form" data-ajax="false" style="padding:1em">
+
+               <input type="hidden" id="fairy-add-destination" value="#list-page">
+
+               <div class="form-control">
+                  <label for="fairy-add-name" class="form-label">Name this fairy</label>
+                  <input id="fairy-add-name" type="text" class="form-input" data-role="none" placeholder="Type fairy name here">
+               </div>
+               <div class="form-control">
+                  <label for="fairy-add-type" class="form-label">Pick a type</label>
+                  <input id="fairy-add-type" type="text" class="form-input" data-role="none" placeholder="Type fairy type here">
+                  <!-- <select name="fairy-add-type" id="fairy-add-type" class="form-select"> 
+                     <option value="normal">Normal</option> 
+                     <option value="dark">Dark</option> 
+                     <option value="water">Water</option> 
+                     <option value="grass">Grass</option> 
+               </select>  --> 
+               <div class="form-control">
+                  <label for="fairy-add-contest" class="form-label">Feature</label>
+                  <input id="fairy-add-contest" type="text" class="form-input" data-role="none" placeholder="Type the feature">
+               </div>
+               <div class="form-control">
+                  <label for="fairy-add-description" class="form-label">Description</label>
+                  <textarea id="fairy-add-description" class="form-input" data-role="none" placeholder="Type a description"></textarea>
+               <div a href="#" class=" form-button js-animal-add">Save</div>
+            </form>
+         </div>
+    </section>
 <!-- Add New Fairy page -->
-   <section data-role="page" id="fairy-add-page">
+<!--    <section data-role="page" id="fairy-add-page">
       <header data-role="header">
          <h1>Animal Info</h1>
          <ul>
@@ -178,7 +223,7 @@
             </div>
          </form>
       </div>
-   </section>
+   </section> -->
 
 
 <!-- List page -->
@@ -219,7 +264,7 @@
             <li><a href="#" data-rel="back">
                <img src="img/icon/icon_back.svg" alt="" class="icon">
             <li class="flex-stretch"></li>
-            <li><a href="#animal-edit-page">
+            <li><a href="#animal-profile-edit-page">
                <img src="img/icon/edit.svg" alt="" class="icon">
             </a></li>
             </a></li>
@@ -231,44 +276,91 @@
          </div>
          <div class="profile-bottom">
             <div class="map"></div>
+            <div class="floater right bottom">
+               <a href="#location-add-page" class="btn-circle">&plus;</a>
+            </div>
          </div>
       </div>
    </section>
 
 <!--    edit fairy page -->
-   <section data-role="page" id="animal-edit-page">
-      <header data-role="header">
-         <h1>Edit</h1>
+   <section data-role="page" id="animal-profile-edit-page">
+       <header data-role="header">
+         <h1>Edit Fairy Information</h1>
          <ul>
             <li><a href="#" data-rel="back">
                <img src="img/icon/icon_back.svg" alt="" class="icon">
             </a></li>
+            <li class="flex-stretch"></li>
          </ul>
       </header>
       <div data-role="main">
          <div class="overscroll">
-            <form id="animal-edit-form" data-ajax="false" style="padding:1em">
+            <form id="animal-profile-edit-form" data-ajax="false" style="padding:1em">
+
             </form>
          </div>
       </div>
    </section>
+
+
+<!-- add location -->
+<section data-role="page" id="location-add-page">
+      <header data-role="header">
+         <h1>Choose Location</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#location-description-page">Next</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         <input type="hidden" id="location-add-lat">
+         <input type="hidden" id="location-add-lng">
+         <div class="map"></div>
+      </div>
    </section>
 
+   <section data-role="page" id="location-description-page">
+      <header data-role="header">
+         <h1>Describe the Animal</h1>
+         <ul>
+            <li><a href="#" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" class="js-location-add">Save</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         <div class="overscroll">
+            <form id="location-add-form" data-ajax="false" style="padding:1em">
 
+               <div class="form-control animal-image">
+                  <img src="http://tingweiii.com/aau/wnm617_01/ting.wei/img/fairy/fairy_defult.svg" alt="">
+               </div>
+            
+               <div class="form-control">
+                  <label for="location-add-description" class="form-label">Description</label>
+                  <textarea id="location-add-description" class="form-input" data-role="none"></textarea>
+               </div>
+            </form>
+         </div>
+      </div>
+   </section>
 
 <!--    user profile edit -->
 
    <section data-role="page" id="user-profile-page">
       <div data-role="main">
+         <div class="overscroll">
          <div class="profile"></div>
          <div class="settings-list">
-            <li><img class="profile-icon" src="img/icon/icon_personlaInfo.svg"><a href="#user-edit-page">Personal Information</a></li>
+            <li><img class="profile-icon" src="img/icon/icon_personlaInfo.svg"><a href="#user-profile-edit-page">Personal Information</a></li>
           </div>
          <div class="settings-list">
             <li><img class="profile-icon" src="img/icon/icon_changePass.svg"><a href="#user-password-page">Update Password</a></li>
           </div>
             <li><a href="#" class="js-logout">Logout</a></li>
-        
+        </div>
       </div>
       <footer class="navbar" data-role="footer">
          <ul>
@@ -295,7 +387,7 @@
       </div>
    </section> -->
 
-   <section data-role="page" id="user-edit-page">
+   <section data-role="page" id="user-profile-edit-page">
       <header data-role="header">
          <h1>Personal Information</h1>
          <ul>

@@ -33,7 +33,6 @@ const checkSigninForm = async() => {
       console.log("failure");
       sessionStorage.removeItem('userId');
 
-      // DO SOMETHING HERE
       makeWarning("#signin-warning","Login Failed")
    }
 
@@ -55,8 +54,6 @@ const checkUserId = () => {
    }
 }
 
-
-
 const checkSignupForm = () => {
    let username = $("#signup-username").val();
    let email = $("#signup-email").val();
@@ -64,16 +61,20 @@ const checkSignupForm = () => {
    let passwordconfirm = $("#signup-password-confirm").val();
 
    if(password!=passwordconfirm) {
+      makeWarning("#signin-warning","Password don't match");
       throw "password don't match";
       return;  
    } else {
       query({type:'insert_user',params:[username,email,password]})
       .then(d=>{
-         if(d.error){
-            thorw d.error;
+         if(d.error) {
+            makeWarning("#signin-warning","Username or email already exist");
+            throw d.error;
          }
          console.log(d);
-         $mobile.navigate("#signin-page");
+         $.mobile.navigate("#signin-page");
       })
    }
 }
+
+

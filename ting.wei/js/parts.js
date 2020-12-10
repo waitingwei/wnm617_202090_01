@@ -23,6 +23,9 @@ const makeUserProfile = templater(o=>`
    </div>
    `);
 
+
+
+
 const makeAnimalProfile = templater(o=>`
    <div class="fairy-profile-info">
       <div class="center-image">
@@ -32,15 +35,92 @@ const makeAnimalProfile = templater(o=>`
 
       <div class="fairy-profile-name">${o.name}</div>
       <div class="animallist-type">${o.type}</div>
-      <div class="fairy-profile-stats">Contest</div>
+      <div class="fairy-profile-stats">Feature</div>
       <div class="fairy-profile-value">${o.contest}</div>
+      <div class="fairy-profile-stats">Description</div>
+      <div class="fairy-profile-value">${o.description}</div>
       <div class="fairy-profile-stats">Create Time</div>
       <div class="fairy-profile-value">${o.date_create}</div>
-       <div class="fairy-profile-stats">Description</div>
-      <div class="fairy-profile-value">${o.description}</div>
       
    </div>
    `);
+
+
+const FormControl = ({namespace,name,displayname,type,placeholder,value}) => {
+   return `<div class="form-control">
+   <label for="${namespace}-${name}" class="form-label">${displayname}</label>
+   <input id="${namespace}-${name}" type="${type}" class="form-input data-role="none" placeholer="${placeholder}" value="${value}">
+   </div>`;
+}
+
+const makeUserProfileUpdateForm = o => `
+${FormControl({
+   namespace:'user-edit',
+   name:'username',
+   displayname:'Username',
+   type:'text',
+   placeholer:'Type your username',
+   value:o.username
+})}
+${FormControl({
+   namespace:'user-edit',
+   name:'name',
+   displayname:'Full Name',
+   type:'text',
+   placeholer:'Type your full name',
+   value:o.name
+})}
+${FormControl({
+   namespace:'user-edit',
+   name:'email',
+   displayname:'Email',
+   type:'text',
+   placeholer:'Type your user email',
+   value:o.email
+})}
+${FormControl({
+   namespace:'user-edit',
+   name:'age',
+   displayname:'Age',
+   type:'text',
+   placeholer:'Type your age',
+   value:o.age
+})}
+
+<button type="submit" class="form-button" data-role="none">Save</button>
+`;
+
+
+const makeAnimalProfileUpdateForm = o => `
+
+${FormControl({
+   namespace:'animal-edit',
+   name:'name',
+   displayname:'Fairy Name',
+   type:'text',
+   placeholer:'Type the fairy name',
+   value:o.name
+})}
+${FormControl({
+   namespace:'animal-edit',
+   name:'contest',
+   displayname:'Feature',
+   type:'text',
+   placeholer:'Type the feature',
+   value:o.contest
+})}
+
+<div class="form-control">
+   <label for="animal-edit-description" class="form-label">Description</label>
+   <textarea id="animal-edit-description" class="form-input data-role="none" placeholer="Type a description" style="height:6em">${o.description}
+   </textarea>
+   <div a href="#" class=" form-button js-animal-edit">Save</div>
+   <div a href="#" class=" form-button-gray js-animal-delete" data-id="${o.id}">Delete</div>
+
+</div>
+
+`;
+
 
 const makeAnimalPopup = o => `
 

@@ -116,17 +116,18 @@ const makeMarkers = (map_el,map_locs) => {
    markers = [];
 
    map_locs.forEach(o=>{
-      let m = new google.maps.Marker({
+      let pos = {
          position:o,
-         map:map,
-         icon:{
+         map:map
+      }
+      if(o.icon) pos.icon = {
             url: o.icon,
             scaledSize: {
                width:40,
                height:40  
             }
-         }
-      });
+         };
+      let m = new google.maps.Marker(pos);
       markers.push(m);
    });
 
