@@ -3,7 +3,7 @@
 const makeAnimalList = templater(o=>`
    <div class="animallist-item js-animal-jump" data-id="${o.id}">
       <div class="animallist-icon">
-         <img src="${o.img}" alt="">
+         <img src="img/fairy/fairy_${o.type}.png" alt="">
       </div>
       <div class="animallist-description">
          <div class="animallist-time">${o.date_create}</div>
@@ -29,7 +29,7 @@ const makeUserProfile = templater(o=>`
 const makeAnimalProfile = templater(o=>`
    <div class="fairy-profile-info">
       <div class="center-image">
-         <img src="${o.img}" alt=""></div>
+         <img src="img/fairy/fairy_${o.type}.png" alt=""></div>
    </div>
    <div class="animalprofile-description">
 
@@ -54,6 +54,12 @@ const FormControl = ({namespace,name,displayname,type,placeholder,value}) => {
 }
 
 const makeUserProfileUpdateForm = o => `
+
+   <div class="user-edit-image">
+      <img src="${o.img}" alt="">
+      <a href="#user-upload-page" class="floater end right">Change Profile Photo</a></a>
+   </div>
+
 ${FormControl({
    namespace:'user-edit',
    name:'username',
@@ -86,8 +92,7 @@ ${FormControl({
    placeholer:'Type your age',
    value:o.age
 })}
-
-<button type="submit" class="form-button" data-role="none">Save</button>
+ <div a href="#" class=" form-button js-user-edit">Save</div>
 `;
 
 
@@ -100,6 +105,14 @@ ${FormControl({
    type:'text',
    placeholer:'Type the fairy name',
    value:o.name
+})}
+${FormControl({
+   namespace:'animal-edit',
+   name:'type',
+   displayname:'Type',
+   type:'text',
+   placeholer:'Pick a type',
+   value:o.type
 })}
 ${FormControl({
    namespace:'animal-edit',
@@ -126,7 +139,7 @@ const makeAnimalPopup = o => `
 
    <div class="animallist-popup js-animal-jump" data-id="${o.animal_id}">
       <div class="animallist-icon">
-         <img src="${o.img}" alt=""></div>
+         <img src="img/fairy/fairy_${o.type}.png" alt=""></div>
       <div class="animallist-popup-description">
          <div class="animallist-time">${o.date_create}</div>
          <div class="animallist-name">${o.name}</div>

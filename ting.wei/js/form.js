@@ -1,9 +1,24 @@
 
+const checkUserEditForm = () => {
+   let username = $("#user-edit-username").val();
+   let name = $("#user-edit-name").val();
+   let email = $("#user-edit-email").val();
+   let age = $("#user-edit-age").val();
 
+   query({
+      type:'update_user',
+      params:[username,name,email,age,sessionStorage.userId]
+   }).then(d=>{
+      if(d.error) {
+         throw d.error;
+      }
+      window.history.back();
+   })
+}
 
 const checkAnimalAddForm = () => {
    let name = $("#fairy-add-name").val();
-   let type = $("#fairy-add-type").val();
+   let type = $("#fairy-pick-type").val();
    // let type = $("#fairy-add-type").val(`$_POST['fairy-add-type']`);
    let contest = $("#fairy-add-contest").val();
    let description = $("#fairy-add-description").val();
@@ -41,19 +56,20 @@ const checkLocationAddForm = () => {
 
       console.log(d);
 
-      window.history.go(-2);
+      window.history.go(-3);
    })
 }
 
 
 const checkAnimalProfileUpdateForm = () => {
    let name = $("#animal-edit-name").val();
+   let type = $("#animal-edit-type").val();
    let contest = $("#animal-edit-contest").val();
    let description = $("#animal-edit-description").val();
 
    query({
       type:'update_fairy',
-      params:[name,contest,description,sessionStorage.animalId]
+      params:[name,type,contest,description,sessionStorage.animalId]
    }).then(d=>{
       if(d.error) {
          throw d.error;
@@ -90,7 +106,7 @@ const checkListFilter = async ({field,value}) => {
          params:[field,value,sessionStorage.userId]
       });
 
-   drawAnimalList(r.result,"Search produced no results.");
+   drawAnimalList(r.result,'<img src="img/emptyFilterStatus.png" />');
 }
 
 
@@ -117,8 +133,34 @@ const checkUserUploadForm = () => {
          throw d.error;
       }
       window.history.back();
+
    })
 }
+
+const checkUserPasswordUpateForm = () => {
+   let oldpassword = $("#user-password-oldpassword").val();
+   let password = $("#suser-password-password").val();
+   let passwordconfirm = $("#user-password-confirm").val();
+
+   if(password!=passwordconfirm) {
+      makeWarning("#signin-warning","Password don't match");
+      throw "password don't match";
+      return;  
+   } else {
+      query({type:'update_password',params:[password]})
+      .then(d=>{
+         if(d.error) {
+            throw d.error;
+         }
+         console.log(d);
+         makeWarning("#signin-warning","Password changed");
+
+      })
+   }
+}
+
+
+
 
 
 const checkAnimalDelete = id => {
@@ -131,11 +173,4 @@ const checkAnimalDelete = id => {
       }
       window.history.go(-2);
    })
-
 }
-
-
-
-
-
-

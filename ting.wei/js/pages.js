@@ -8,7 +8,7 @@ const ListPage = async() => {
    $("#list-page .animallist").html(
       d.result.length ?
       makeAnimalList(d.result) :
-      "Username or email already exist"
+      '<img src="img/emptyStatus.png" />'
       )
 }
 
@@ -71,6 +71,7 @@ const UserProfileEditPage = async() => {
   // });
 
 }
+
 
 const FariyAddPage = async() => {
    query({type:'fairy_by_id',params:[sessionStorage.animalId]})

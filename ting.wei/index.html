@@ -36,7 +36,7 @@
 </head>
 <body>
   <!--  onboarding -->
-   <section data-role="page" id="onboarding-page">
+<!--    <section data-role="page" id="onboarding-page">
       <div data-role="main">
          <div class="flex-stretch display-flex flex-align-center flex-justify-center">
             <img src="img/icon/icon_homelogo.png" alt="">
@@ -49,7 +49,7 @@
 
          </form>
       </div>
-   </section>
+   </section> -->
 
    <!-- signin -->
    <section data-role="page" id="signin-page">
@@ -161,27 +161,35 @@
 
          </ul>
       </header>
-         <div class="fairy-add-top">
+        <!--  <div class="fairy-add-top">
+            <input type="hidden" id="location-add-lat">
+            <input type="hidden" id="location-add-lng">
             <div class="map"></div>
-         </div>
+            <div class="floater right bottom">
+            <a href="#location-add-page" class="btn-circle">&plus;</a>
+            </div>
+         </div> -->
          <div class="overscroll">
             <form id="fairy-add-form" data-ajax="false" style="padding:1em">
 
-               <input type="hidden" id="fairy-add-destination" value="#list-page">
+               <input type="hidden" id="fairy-add-destination" value="#animal-profile-page">
 
                <div class="form-control">
                   <label for="fairy-add-name" class="form-label">Name this fairy</label>
                   <input id="fairy-add-name" type="text" class="form-input" data-role="none" placeholder="Type fairy name here">
                </div>
-               <div class="form-control">
+               <!-- <div class="form-control">
                   <label for="fairy-add-type" class="form-label">Pick a type</label>
-                  <input id="fairy-add-type" type="text" class="form-input" data-role="none" placeholder="Type fairy type here">
-                  <!-- <select name="fairy-add-type" id="fairy-add-type" class="form-select"> 
-                     <option value="normal">Normal</option> 
-                     <option value="dark">Dark</option> 
-                     <option value="water">Water</option> 
-                     <option value="grass">Grass</option> 
-               </select>  --> 
+                  <input id="fairy-add-type" type="text" class="form-input" data-role="none" placeholder="Type fairy type here"> -->
+                <div class="form-control"> 
+                  <label for="fairy-pick-type" class="form-label">Pick a type</label>
+                  <select for="fairy-pick-type" id="fairy-pick-type" class="form-select"> 
+                     <option value="normal">normal</option> 
+                     <option value="dark">dark</option> 
+                     <option value="water">water</option> 
+                     <option value="grass">grass</option> 
+               </select>  
+               </div> 
                <div class="form-control">
                   <label for="fairy-add-contest" class="form-label">Feature</label>
                   <input id="fairy-add-contest" type="text" class="form-input" data-role="none" placeholder="Type the feature">
@@ -242,8 +250,13 @@
             <div class="filter" data-field="type" data-value="grass">Grass</div>
          </div>
       </header>
+
       <div data-role="main">
+         <div class="floater center bottom">
+            <a href="#fairy-add-page"><img src="img/icon_plus.svg" class="round-button"></a>
+         </div>
          <div class="overscroll">
+
             <div class="animallist"></div>
          </div>
       </div>
@@ -311,7 +324,7 @@
          <ul>
             <li><a href="#" data-rel="back">Back</a></li>
             <li class="flex-stretch"></li>
-            <li><a href="#location-description-page">Next</a></li>
+            <li><a href="#" class="js-location-add">Save</a></li>
          </ul>
       </header>
       <div data-role="main">
@@ -327,7 +340,7 @@
          <ul>
             <li><a href="#" data-rel="back">Back</a></li>
             <li class="flex-stretch"></li>
-            <li><a href="#" class="js-location-add">Save</a></li>
+<!--             <li><a href="#" class="js-location-add">Save</a></li> -->
          </ul>
       </header>
       <div data-role="main">
@@ -429,18 +442,21 @@
                   <input id="user-password-confirm" type="password" class="form-input" data-role="none" placeholder="Type your new password">
                </div>
                <div class="form-control">
-               <button type="submit" class="form-button" data-role="none">Save</button>
+                <div a href="#" class=" form-button js-user-password-update">Save</div>
                </div>
             </form>
          </div>
       </div>
    </section>
 
-   <section data-role="page" id="user-upload-page">
+
+ <section data-role="page" id="user-upload-page">
       <header data-role="header">
          <h1>Upload Photo</h1>
          <ul>
-            <li><a href="#" data-rel="back">Back</a></li>
+            <li><a href="#" data-rel="back">
+               <img src="img/icon/icon_back.svg" alt="" class="icon">
+            </a></li>
             <li class="flex-stretch"></li>
             <li><a href="#" class="js-user-upload">Save</a></li>
          </ul>
@@ -452,9 +468,9 @@
                <input type="file" data-role="none" id="user-upload-input">
             </label>
          </form>
+         <label for="user-upload-input" class="form-button">Choose Image</label>
       </div>
    </section>
-
 
 
 

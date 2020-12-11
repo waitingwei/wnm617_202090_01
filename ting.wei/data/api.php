@@ -154,6 +154,18 @@ function makeStatement($data) {
             (?, ?, ?, ?, ?, 'http://tingweiii.com/aau/wnm617_01/ting.wei/img/fairy/fairy_defult.svg', NOW())
             ",$p);
          return ["id"=>$c->lastInsertId()];
+         
+         // // insert location in add afiry too
+         //  $r = makeQuery($c,"INSERT INTO
+         //    `track_locations`
+         //    (`animal_id`,`lat`,`lng`,`description`,`photo`,`icon`,`date_create`)
+         //    VALUES
+         //    (?, ?, ?, ?, 'http://tingweiii.com/aau/wnm617_01/ting.wei/img/fairy/fairy_defult.svg', 'http://tingweiii.com/aau/wnm617_01/ting.wei/img/fairy/icon_locationNormal.svg', NOW())
+         //    ",$p);
+         // return [
+         //    "r"=>$r,
+         //    "p"=>$p,
+         //    "id"=>$c->lastInsertId()];
 
       case "insert_location":
          $r = makeQuery($c,"INSERT INTO
@@ -179,10 +191,21 @@ function makeStatement($data) {
             SET
             `username` = ?,
             `name` = ?,
-            `email` = ?
+            `email` = ?,
+            `age` = ?
             WHERE `id` = ?
             ",$p,false);
          return ["result"=>"success"];
+
+      case "update_password":
+         $r = makeQuery($c,"UPDATE
+            `track_users`
+            SET
+            `password` = ?
+            WHERE `id` = ?
+            ",$p,false);
+         return ["result"=>"success"];
+
       case "update_user_image":
          $r = makeQuery($c,"UPDATE
             `track_users`
@@ -197,6 +220,7 @@ function makeStatement($data) {
             `track_fairy`
             SET
             `name` = ?,
+            `type` = ?,
             `contest` = ?,
             `description` = ?
             WHERE `id` = ?

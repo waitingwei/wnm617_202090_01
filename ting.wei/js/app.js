@@ -18,7 +18,7 @@ $(()=>{
       // Page Routing
       switch(ui.toPage[0].id) {
          case "recent-page": RecentPage(); break;
-         case "fairy-add-page": FariyAddPage(); break;
+         // case "fairy-add-page": FariyAddPage(); break;
          case "list-page": ListPage(); break;
          case "user-profile-page": UserProfilePage(); break;
          case "user-profile-edit-page": UserProfileEditPage(); break;
@@ -51,9 +51,9 @@ $(()=>{
    
 //FORM SUBMIT CLICKS
 
-  // .on("click",'.js-user-edit',function(e){
-  //     checkUserEditForm();
-  //  })
+  .on("click",'.js-user-edit',function(e){
+      checkUserEditForm();
+   })
    .on("click",'.js-animal-add',function(e){
       checkAnimalAddForm();
    })
@@ -69,7 +69,9 @@ $(()=>{
       checkUserUploadForm();
    })
 
-
+   .on("click",'.js-user-password-update',function(e){
+      checkUserPasswordUpateForm();
+   })
 
 
    .on("click",".filter",function(){
