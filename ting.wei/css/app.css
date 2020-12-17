@@ -80,7 +80,7 @@ a {
 }
 .hidden { display:none; }
 .overscroll {
-   height:100%;
+   height:89%;
    width:100%;
    overflow:auto;
     margin-top: 1em;
